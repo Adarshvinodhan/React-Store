@@ -1,8 +1,17 @@
-# React + Vite
+# Fake Store React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React application that displays products from the Fake Store API and allows users to add items to a cart using a modal interface. Styled with Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Fetches product data from the Fake Store API
+- Displays products with images, titles, and prices
+- Allows adding products to a cart through a modal
+
+## Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/fake-store-react-app.git
+   cd fake-store-react-app
+
