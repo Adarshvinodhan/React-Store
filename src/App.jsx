@@ -7,6 +7,7 @@ import CartPopup from "./components/CartPopup";
 
 export default function App() {
   const [products, setProducts] = useState([]);
+  const [activeCategory,setActiveCategory] = useState('all')
   const [cart,setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false); 
 
@@ -16,6 +17,10 @@ export default function App() {
           .then((data) => setProducts(data))
           .catch((error) => console.error('Error fetching products:', error));
   }, []);
+
+  //Category Based Filtering
+  const handleCategoryChange = (category)=>setActiveCategory(category)
+
 
   const addToCart = (product) => {
     // Check if the product is already in the cart by comparing product IDs
@@ -45,8 +50,8 @@ const openCart = () => {
 
       return(
         <>
-         <Navbar cartCount={cartCount} openCart={openCart}/>
-         <ProductList products={products} addToCart={addToCart}/>
+         <Navbar handleCategoryChange={handleCategoryChange} cartCount={cartCount} openCart={openCart}/>
+         <ProductList products={products} activeCategory={activeCategory} addToCart={addToCart}/>
          {isCartOpen && (
                 <CartPopup cart={cart} closeCart={closeCart} removeFromCart={removeFromCart} />
          )}
