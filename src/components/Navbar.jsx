@@ -101,7 +101,7 @@ function Navbar({ handleCategoryChange, cartCount, openCart }) {
 
       {/* Cart */}
       <Link to="/cart">
-      <button className="relative" onClick={openCart}>
+      <button className="relative">
         <img src="/icons/cart.png" alt="Cart" className="h-7 sm:h-6" />
         <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-semibold rounded-full h-5 w-5 flex items-center justify-center">
           {cartCount}

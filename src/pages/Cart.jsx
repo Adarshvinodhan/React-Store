@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Cart({cart,removeFromCart}) {
-  console.log(cart)
+
   return (
     <div>
       <div className="min-h-screen bg-gray-100 py-10">
@@ -32,7 +32,7 @@ function Cart({cart,removeFromCart}) {
         <p className="text-lg font-semibold">${product.price.toFixed(2)}</p>
         <button
           className="text-red-500 hover:text-red-700"
-          onClick={() => removeFromCart(product.id)}
+          onClick={() => removeFromCart(product)}
         >
           Remove
         </button>
@@ -49,7 +49,7 @@ function Cart({cart,removeFromCart}) {
       {/* Cart Summary */}
     <div className="mt-8">
       <div className="flex justify-between text-lg font-medium">
-        <p>Subtotal:</p>
+        <p>Subtotal:{}</p>
         <p>$150.00</p>
       </div>
       <div className="flex justify-between text-lg font-medium">
