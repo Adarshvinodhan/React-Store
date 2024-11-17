@@ -55,7 +55,7 @@ function Cart({cart,removeFromCart}) {
       </div>
       <div className="flex justify-between text-lg font-medium">
         <p>Tax:</p>
-        <p></p>
+        <p>No tax for you</p>
       </div>
       <div className="flex justify-between text-xl font-bold mt-4">
         <p>Total:</p>

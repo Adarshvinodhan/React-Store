@@ -14,7 +14,7 @@ function Navbar({ handleCategoryChange, cartCount, openCart }) {
     {/* Logo */}
     <Link to='/'>
     <div className="flex items-center text-3xl font-bold">
-      X-mart
+      <span className="text-red-600">X</span>-mart
     </div>
     </Link>    
     
