@@ -1,8 +1,9 @@
 import React from 'react'
 
 function Cart({cart,removeFromCart}) {
-
+  const totalPrice = cart.reduce((sum, product) => sum + product.price, 0);
   return (
+    
     <div>
       <div className="min-h-screen bg-gray-100 py-10">
   <div className="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg">
@@ -49,16 +50,17 @@ function Cart({cart,removeFromCart}) {
       {/* Cart Summary */}
     <div className="mt-8">
       <div className="flex justify-between text-lg font-medium">
-        <p>Subtotal:{}</p>
-        <p>$150.00</p>
+        <p>Subtotal:</p>
+        <p>{totalPrice}</p>
       </div>
       <div className="flex justify-between text-lg font-medium">
         <p>Tax:</p>
-        <p>$15.00</p>
+        <p></p>
       </div>
       <div className="flex justify-between text-xl font-bold mt-4">
         <p>Total:</p>
-        <p>$165.00</p>
+        <p>{totalPrice}</p>
+        
       </div>
     </div>
 
