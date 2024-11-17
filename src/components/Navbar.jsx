@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar({ handleCategoryChange, cartCount, openCart }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -11,9 +12,11 @@ function Navbar({ handleCategoryChange, cartCount, openCart }) {
     
     <nav className="h-[10vh] flex items-center justify-between px-4 sm:px-12 shadow-md relative bg-white">
     {/* Logo */}
+    <Link to='/'>
     <div className="flex items-center text-3xl font-bold">
-      Legpieze
-    </div>    
+      X-mart
+    </div>
+    </Link>    
     
     {/* Dropdown Menu (Mobile) */}
     <div className="sm:hidden relative items-center right-14">
@@ -60,6 +63,8 @@ function Navbar({ handleCategoryChange, cartCount, openCart }) {
                 handleCategoryChange(
                   category.toLowerCase() === "jewelry"
                     ? "jewelery"
+                    :category.toLowerCase() === "electronics"
+                    ?"electronics"
                     : `${category.toLowerCase()}'s clothing`
                 )
               }
@@ -81,7 +86,7 @@ function Navbar({ handleCategoryChange, cartCount, openCart }) {
       </button>
 
       {/* Search Bar (Desktop) */}
-      <div className="hidden sm:flex relative max-w-sm">
+      <div className="hidden sm:flex relative w-[40vw]">
         <img
           src="/icons/search.png"
           alt="Search"
@@ -95,20 +100,14 @@ function Navbar({ handleCategoryChange, cartCount, openCart }) {
       </div>
 
       {/* Cart */}
+      <Link to="/cart">
       <button className="relative" onClick={openCart}>
         <img src="/icons/cart.png" alt="Cart" className="h-7 sm:h-6" />
         <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-semibold rounded-full h-5 w-5 flex items-center justify-center">
           {cartCount}
         </span>
       </button>
-
-      {/* LinkedIn */}
-      <a
-        href="https://linkedin.com/in/adarshvinodhan"
-        target="_blank"
-        rel="noopener noreferrer">
-        <img src="/icons/linkedin.png" alt="LinkedIn" className="h-7 sm:h-6" />
-      </a>
+      </Link>
     </div>
   </nav>
     

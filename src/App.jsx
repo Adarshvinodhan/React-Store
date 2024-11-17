@@ -1,15 +1,17 @@
 import React from "react";
 import { useState,useEffect } from "react";
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
-import CartPopup from "./components/CartPopup";
+import Cart from "./pages/Cart"
+
 
 
 export default function App() {
   const [products, setProducts] = useState([]);
   const [activeCategory,setActiveCategory] = useState('all')
-  const [cart,setCart] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false); 
+  const [cart,setCart] = useState([{"id":1,"title":"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops","price":109.95,"description":"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday","category":"men's clothing","image":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg","rating":{"rate":3.9,"count":120}}]);
+
 
   useEffect(() => {
       fetch('https://fakestoreapi.com/products/')
@@ -49,13 +51,13 @@ const openCart = () => {
   
 
       return(
-        <>
-         <Navbar handleCategoryChange={handleCategoryChange} cartCount={cartCount} openCart={openCart}/>
-         <ProductList products={products} activeCategory={activeCategory} addToCart={addToCart}/>
-         {isCartOpen && (
-                <CartPopup cart={cart} closeCart={closeCart} removeFromCart={removeFromCart} />
-         )}
-        </>
-      )
-}
+       
+        <Router>
+          <Navbar handleCategoryChange={handleCategoryChange} cartCount={cartCount} openCart={openCart}/>
+           <Routes>
+              <Route path='/' element={<ProductList products={products} activeCategory={activeCategory} addToCart={addToCart}/>}/>
+              <Route path='/cart' element={<Cart cart={cart} removeFromCart={removeFromCart}/>}/>
+          </Routes>
+         </Router>
+        )}
 
