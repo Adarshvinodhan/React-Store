@@ -10,7 +10,7 @@ function Navbar({ handleCategoryChange, cartCount, openCart }) {
 
   return (
     
-    <nav className="h-[10vh] flex items-center justify-between px-4 sm:px-12 shadow-md relative bg-white">
+    <nav className="sticky top-0 h-[10vh] flex items-center justify-between px-4 sm:px-12 shadow-md bg-white z-50">
     {/* Logo */}
     <Link to='/'>
     <div className="flex items-center text-3xl font-bold">
